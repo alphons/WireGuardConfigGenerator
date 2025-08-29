@@ -88,7 +88,7 @@ public partial class UserControlPeer : UserControl
 		if (string.IsNullOrWhiteSpace(peer.AllowedIPs))
 			peer.AllowedIPs = $"{peer.ParentServer?.Address}";
 
-		this.txtPrivKey.Text = peer.PrivateKey;
+		this.txtPrivateKey.Text = peer.PrivateKey;
 		this.txtPublicKey.Text = peer.PubKey;
 		this.txtListenPort.Text = peer.ListenPort.ToString();
 		this.txtAddress.Text = peer.Address?.Split('/')[0];
@@ -103,7 +103,7 @@ public partial class UserControlPeer : UserControl
 		if (peer == null)
 			return;
 
-		this.peer.PrivateKey = this.txtPrivKey.Text;
+		this.peer.PrivateKey = this.txtPrivateKey.Text;
 		this.peer.PubKey = this.txtPublicKey.Text;
 		this.peer.ListenPort = int.TryParse(this.txtListenPort.Text, out int port) ? port : 0;
 		this.peer.Address = $"{this.txtAddress.Text}/{this.comboBox1.SelectedItem}";
@@ -131,7 +131,7 @@ public partial class UserControlPeer : UserControl
 
 		this.Invoke(() =>
 		{
-			this.txtPrivKey.Text = peer.PrivateKey;
+			this.txtPrivateKey.Text = peer.PrivateKey;
 			this.txtPublicKey.Text = peer.PubKey;
 			MakeConfig();
 		});

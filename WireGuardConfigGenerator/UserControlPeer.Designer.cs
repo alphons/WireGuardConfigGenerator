@@ -34,12 +34,13 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
+			button1 = new Button();
 			comboBox1 = new ComboBox();
 			txtPersistenKeepAlive = new TextBox();
 			label8 = new Label();
 			txtAllowedIPs = new TextBox();
 			label5 = new Label();
-			txtPrivKey = new TextBox();
+			txtPrivateKey = new TextBox();
 			label1 = new Label();
 			txtListenPort = new TextBox();
 			txtAddress = new TextBox();
@@ -52,7 +53,6 @@
 			buttonEdit = new Button();
 			lblName = new Label();
 			label4 = new Label();
-			button1 = new Button();
 			tabControl1.SuspendLayout();
 			tabPage0.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -78,7 +78,7 @@
 			tabPage0.Location = new Point(4, 24);
 			tabPage0.Name = "tabPage0";
 			tabPage0.Padding = new Padding(3);
-			tabPage0.Size = new Size(451, 259);
+			tabPage0.Size = new Size(451, 371);
 			tabPage0.TabIndex = 1;
 			tabPage0.Text = "peer conf";
 			tabPage0.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
 			groupBox1.Controls.Add(label8);
 			groupBox1.Controls.Add(txtAllowedIPs);
 			groupBox1.Controls.Add(label5);
-			groupBox1.Controls.Add(txtPrivKey);
+			groupBox1.Controls.Add(txtPrivateKey);
 			groupBox1.Controls.Add(label1);
 			groupBox1.Controls.Add(txtListenPort);
 			groupBox1.Controls.Add(txtAddress);
@@ -147,6 +147,16 @@
 			groupBox1.TabIndex = 19;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "peer";
+			// 
+			// button1
+			// 
+			button1.Location = new Point(73, 80);
+			button1.Name = "button1";
+			button1.Size = new Size(108, 23);
+			button1.TabIndex = 20;
+			button1.Text = "Renew keys";
+			button1.UseVisualStyleBackColor = true;
+			button1.Click += RenewKeys_Click;
 			// 
 			// comboBox1
 			// 
@@ -192,10 +202,10 @@
 			// 
 			// txtPrivKey
 			// 
-			txtPrivKey.Location = new Point(73, 22);
-			txtPrivKey.Name = "txtPrivKey";
-			txtPrivKey.Size = new Size(318, 23);
-			txtPrivKey.TabIndex = 1;
+			txtPrivateKey.Location = new Point(73, 22);
+			txtPrivateKey.Name = "txtPrivKey";
+			txtPrivateKey.Size = new Size(318, 23);
+			txtPrivateKey.TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -232,11 +242,11 @@
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(20, 25);
+			label2.Location = new Point(7, 25);
 			label2.Name = "label2";
-			label2.Size = new Size(46, 15);
+			label2.Size = new Size(62, 15);
 			label2.TabIndex = 0;
-			label2.Text = "PrivKey";
+			label2.Text = "PrivateKey";
 			// 
 			// txtPublicKey
 			// 
@@ -307,16 +317,6 @@
 			label4.TabIndex = 12;
 			label4.Text = "Name";
 			// 
-			// button1
-			// 
-			button1.Location = new Point(73, 80);
-			button1.Name = "button1";
-			button1.Size = new Size(108, 23);
-			button1.TabIndex = 20;
-			button1.Text = "Renew keys";
-			button1.UseVisualStyleBackColor = true;
-			button1.Click += RenewKeys_Click;
-			// 
 			// UserControlPeer
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -341,7 +341,7 @@
 		private Label lblName;
 		private Label label4;
 		private GroupBox groupBox1;
-		private TextBox txtPrivKey;
+		private TextBox txtPrivateKey;
 		private Label label1;
 		private TextBox txtListenPort;
 		private TextBox txtAddress;

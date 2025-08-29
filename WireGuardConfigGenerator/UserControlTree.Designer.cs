@@ -44,7 +44,6 @@
 			treeView1.TabIndex = 0;
 			treeView1.AfterLabelEdit += TreeView_AfterLabelEdit;
 			treeView1.AfterSelect += TreeView_AfterSelect;
-			treeView1.DoubleClick += TreeView_DoubleClick;
 			treeView1.KeyDown += TreeView_KeyDown;
 			treeView1.MouseDown += TreeView_MouseDown;
 			// 

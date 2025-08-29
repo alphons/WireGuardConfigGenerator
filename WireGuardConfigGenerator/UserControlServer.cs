@@ -21,7 +21,7 @@ public partial class UserControlServer : UserControl
 			return;
 
 		this.txtEndpoint.Text = server.Endpoint;
-		this.txtPrivKey.Text = server.PrivateKey;
+		this.txtPrivateKey.Text = server.PrivateKey;
 		this.txtPublicKey.Text = server.PubKey;
 		this.lblName.Text = server.Name;
 		this.txtListenPort.Text = server.ListenPort.ToString();
@@ -56,7 +56,7 @@ public partial class UserControlServer : UserControl
 			return;
 
 		this.server.Endpoint = this.txtEndpoint.Text;
-		this.server.PrivateKey = this.txtPrivKey.Text;
+		this.server.PrivateKey = this.txtPrivateKey.Text;
 		this.server.ListenPort = int.TryParse(this.txtListenPort.Text, out int port) ? port : 0;
 		this.server.Address = $"{this.txtAddress.Text}/{this.comboBox1.SelectedItem}";
 		this.server.PostUp = this.txtPostUp.Text;
@@ -130,7 +130,7 @@ public partial class UserControlServer : UserControl
 
 		this.Invoke(() =>
 		{
-			this.txtPrivKey.Text = server.PrivateKey;
+			this.txtPrivateKey.Text = server.PrivateKey;
 			this.txtPublicKey.Text = server.PubKey;
 			MakeConfig();
 		});

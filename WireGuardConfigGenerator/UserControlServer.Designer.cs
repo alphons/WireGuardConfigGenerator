@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			label1 = new Label();
-			txtPrivKey = new TextBox();
+			txtPrivateKey = new TextBox();
 			txtPublicKey = new TextBox();
 			label2 = new Label();
 			txtListenPort = new TextBox();
@@ -44,6 +44,7 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
+			button2 = new Button();
 			comboBox1 = new ComboBox();
 			txtEndpoint = new TextBox();
 			label6 = new Label();
@@ -52,7 +53,6 @@
 			buttonEdit = new Button();
 			lblName = new Label();
 			label7 = new Label();
-			button2 = new Button();
 			tabControl1.SuspendLayout();
 			tabPage0.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -62,18 +62,18 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(21, 59);
+			label1.Location = new Point(8, 59);
 			label1.Name = "label1";
-			label1.Size = new Size(46, 15);
+			label1.Size = new Size(62, 15);
 			label1.TabIndex = 0;
-			label1.Text = "PrivKey";
+			label1.Text = "PrivateKey";
 			// 
-			// txtPrivKey
+			// txtPrivateKey
 			// 
-			txtPrivKey.Location = new Point(74, 56);
-			txtPrivKey.Name = "txtPrivKey";
-			txtPrivKey.Size = new Size(318, 23);
-			txtPrivKey.TabIndex = 1;
+			txtPrivateKey.Location = new Point(74, 56);
+			txtPrivateKey.Name = "txtPrivateKey";
+			txtPrivateKey.Size = new Size(318, 23);
+			txtPrivateKey.TabIndex = 1;
 			// 
 			// txtPublicKey
 			// 
@@ -161,7 +161,7 @@
 			tabPage0.Location = new Point(4, 24);
 			tabPage0.Name = "tabPage0";
 			tabPage0.Padding = new Padding(3);
-			tabPage0.Size = new Size(410, 376);
+			tabPage0.Size = new Size(410, 425);
 			tabPage0.TabIndex = 1;
 			tabPage0.Text = "server conf";
 			tabPage0.UseVisualStyleBackColor = true;
@@ -213,7 +213,7 @@
 			groupBox1.Controls.Add(comboBox1);
 			groupBox1.Controls.Add(txtEndpoint);
 			groupBox1.Controls.Add(label6);
-			groupBox1.Controls.Add(txtPrivKey);
+			groupBox1.Controls.Add(txtPrivateKey);
 			groupBox1.Controls.Add(label4);
 			groupBox1.Controls.Add(txtListenPort);
 			groupBox1.Controls.Add(txtAddress);
@@ -230,6 +230,16 @@
 			groupBox1.TabIndex = 13;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "server";
+			// 
+			// button2
+			// 
+			button2.Location = new Point(74, 114);
+			button2.Name = "button2";
+			button2.Size = new Size(108, 23);
+			button2.TabIndex = 19;
+			button2.Text = "Renew keys";
+			button2.UseVisualStyleBackColor = true;
+			button2.Click += RenewKeys_Click;
 			// 
 			// comboBox1
 			// 
@@ -310,16 +320,6 @@
 			label7.TabIndex = 14;
 			label7.Text = "Name";
 			// 
-			// button2
-			// 
-			button2.Location = new Point(74, 114);
-			button2.Name = "button2";
-			button2.Size = new Size(108, 23);
-			button2.TabIndex = 19;
-			button2.Text = "Renew keys";
-			button2.UseVisualStyleBackColor = true;
-			button2.Click += RenewKeys_Click;
-			// 
 			// UserControlServer
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -340,7 +340,7 @@
 		#endregion
 
 		private Label label1;
-		private TextBox txtPrivKey;
+		private TextBox txtPrivateKey;
 		private TextBox txtPublicKey;
 		private Label label2;
 		private TextBox txtListenPort;
