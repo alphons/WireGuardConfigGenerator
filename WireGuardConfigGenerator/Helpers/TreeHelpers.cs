@@ -4,9 +4,9 @@ namespace WireGuardConfigGenerator.Helpers;
 
 public static class TreeHelpers
 {
-	public static void LoadTree(TreeView treeView, Root root)
+	public async static Task LoadTreeAsync(TreeView treeView, Root root, string path, string password)
 	{
-		root.Load();
+		await root.LoadAsync(path, password);
 
 		treeView.Nodes.Clear();
 		foreach (var group in root.Groups)

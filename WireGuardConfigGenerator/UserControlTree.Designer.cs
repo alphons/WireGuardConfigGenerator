@@ -59,7 +59,6 @@
 			Controls.Add(treeView1);
 			Name = "UserControlTree";
 			Size = new Size(138, 130);
-			Load += UserControlTree_Load;
 			ResumeLayout(false);
 		}
 

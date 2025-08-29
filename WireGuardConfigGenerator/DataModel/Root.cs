@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using WireGuardConfigGenerator.Helpers;
 
 namespace WireGuardConfigGenerator.DataModel;
 
@@ -14,21 +15,17 @@ public class Root
 
 	public List<Group> Groups { get; set; } = [];
 
-	public void Save()
-	{
-		var json =JsonSerializer.Serialize(this, options);
-		File.WriteAllText("root.json", json);
-	}
+	public async Task SaveAsync(string path, string password) =>
+		await CryptoUtils.CompressAndEncryptToFileAsync(this, password, path);
 
-	public void Load()
+	public async Task LoadAsync(string path, string password)
 	{
-		if (File.Exists("root.json"))
+		if (File.Exists(path))
 		{
-			var json = File.ReadAllText("root.json");
-			var obj = JsonSerializer.Deserialize<Root>(json);
-			if (obj != null)
+			var root = await CryptoUtils.DecryptAndDecompressFromFileAsync<Root>(path, password) ?? new();
+			if (root != null)
 			{
-				Groups = obj.Groups;
+				Groups = root.Groups;
 			}
 		}
 	}

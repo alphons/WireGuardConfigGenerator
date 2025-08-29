@@ -19,12 +19,12 @@ public partial class UserControlTree : UserControl
 			this.Settings = new();
 	}
 
-	private void UserControlTree_Load(object sender, EventArgs e)
+	public async Task LoadAsync(string path, string password)
 	{
 		if (this.ParentForm is Form1 form)
-			form.FormClosing += (s, e) => root.Save();
+			form.FormClosing += async (s, e) => await root.SaveAsync(path, password);
 
-		TreeHelpers.LoadTree(this.treeView1, root);
+		await TreeHelpers.LoadTreeAsync(this.treeView1, root, path, password);
 	}
 
 

@@ -30,6 +30,8 @@
 		{
 			menuStrip1 = new MenuStrip();
 			fileToolStripMenuItem = new ToolStripMenuItem();
+			toolStripMenuItem1 = new ToolStripMenuItem();
+			toolStripSeparator1 = new ToolStripSeparator();
 			exitToolStripMenuItem = new ToolStripMenuItem();
 			statusStrip1 = new StatusStrip();
 			splitContainer1 = new SplitContainer();
@@ -51,15 +53,27 @@
 			// 
 			// fileToolStripMenuItem
 			// 
-			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripSeparator1, exitToolStripMenuItem });
 			fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			fileToolStripMenuItem.Size = new Size(37, 20);
 			fileToolStripMenuItem.Text = "File";
 			// 
+			// toolStripMenuItem1
+			// 
+			toolStripMenuItem1.Name = "toolStripMenuItem1";
+			toolStripMenuItem1.Size = new Size(180, 22);
+			toolStripMenuItem1.Text = "Open ...";
+			toolStripMenuItem1.Click += OpenFile_Click;
+			// 
+			// toolStripSeparator1
+			// 
+			toolStripSeparator1.Name = "toolStripSeparator1";
+			toolStripSeparator1.Size = new Size(177, 6);
+			// 
 			// exitToolStripMenuItem
 			// 
 			exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			exitToolStripMenuItem.Size = new Size(93, 22);
+			exitToolStripMenuItem.Size = new Size(180, 22);
 			exitToolStripMenuItem.Text = "Exit";
 			exitToolStripMenuItem.Click += Exit_Click;
 			// 
@@ -120,5 +134,7 @@
 		private StatusStrip statusStrip1;
 		private SplitContainer splitContainer1;
 		private UserControlTree userControlTree1;
+		private ToolStripMenuItem toolStripMenuItem1;
+		private ToolStripSeparator toolStripSeparator1;
 	}
 }
