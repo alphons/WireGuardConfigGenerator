@@ -135,4 +135,14 @@ public partial class UserControlServer : UserControl
 			MakeConfig();
 		});
 	}
+
+	private async void GenersatePublicKey_Click(object sender, EventArgs e)
+	{
+		if (server == null) return;
+		string privateKey = this.txtPrivateKey.Text;
+		string publicKey = await WireGuard.ExecuteAsync($"echo {privateKey} | wg pubkey");
+		server.PubKey = publicKey;
+		this.txtPublicKey.Text = server.PubKey;
+		MakeConfig();
+	}
 }

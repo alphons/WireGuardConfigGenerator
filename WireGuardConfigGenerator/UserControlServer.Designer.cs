@@ -44,6 +44,7 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
+			button3 = new Button();
 			button2 = new Button();
 			comboBox1 = new ComboBox();
 			txtEndpoint = new TextBox();
@@ -62,7 +63,7 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(8, 59);
+			label1.Location = new Point(7, 91);
 			label1.Name = "label1";
 			label1.Size = new Size(62, 15);
 			label1.TabIndex = 0;
@@ -70,22 +71,24 @@
 			// 
 			// txtPrivateKey
 			// 
-			txtPrivateKey.Location = new Point(74, 56);
+			txtPrivateKey.Font = new Font("Consolas", 8.25F);
+			txtPrivateKey.Location = new Point(73, 88);
 			txtPrivateKey.Name = "txtPrivateKey";
-			txtPrivateKey.Size = new Size(318, 23);
+			txtPrivateKey.Size = new Size(318, 20);
 			txtPrivateKey.TabIndex = 1;
 			// 
 			// txtPublicKey
 			// 
-			txtPublicKey.Location = new Point(74, 85);
+			txtPublicKey.Font = new Font("Consolas", 8.25F);
+			txtPublicKey.Location = new Point(73, 117);
 			txtPublicKey.Name = "txtPublicKey";
-			txtPublicKey.Size = new Size(318, 23);
+			txtPublicKey.Size = new Size(318, 20);
 			txtPublicKey.TabIndex = 3;
 			// 
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(8, 88);
+			label2.Location = new Point(8, 120);
 			label2.Name = "label2";
 			label2.Size = new Size(59, 15);
 			label2.TabIndex = 2;
@@ -93,9 +96,10 @@
 			// 
 			// txtListenPort
 			// 
+			txtListenPort.Font = new Font("Consolas", 8.25F);
 			txtListenPort.Location = new Point(316, 156);
 			txtListenPort.Name = "txtListenPort";
-			txtListenPort.Size = new Size(76, 23);
+			txtListenPort.Size = new Size(76, 20);
 			txtListenPort.TabIndex = 5;
 			// 
 			// label3
@@ -109,9 +113,10 @@
 			// 
 			// txtAddress
 			// 
+			txtAddress.Font = new Font("Consolas", 8.25F);
 			txtAddress.Location = new Point(74, 156);
 			txtAddress.Name = "txtAddress";
-			txtAddress.Size = new Size(108, 23);
+			txtAddress.Size = new Size(108, 20);
 			txtAddress.TabIndex = 7;
 			// 
 			// label4
@@ -126,11 +131,13 @@
 			// txtPostUp
 			// 
 			txtPostUp.AcceptsReturn = true;
+			txtPostUp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			txtPostUp.Font = new Font("Consolas", 8.25F);
 			txtPostUp.Location = new Point(74, 185);
 			txtPostUp.Multiline = true;
 			txtPostUp.Name = "txtPostUp";
 			txtPostUp.ScrollBars = ScrollBars.Both;
-			txtPostUp.Size = new Size(318, 145);
+			txtPostUp.Size = new Size(427, 142);
 			txtPostUp.TabIndex = 9;
 			// 
 			// label5
@@ -150,7 +157,7 @@
 			tabControl1.Location = new Point(0, 0);
 			tabControl1.Name = "tabControl1";
 			tabControl1.SelectedIndex = 0;
-			tabControl1.Size = new Size(418, 453);
+			tabControl1.Size = new Size(528, 444);
 			tabControl1.TabIndex = 12;
 			tabControl1.SelectedIndexChanged += TabControl_SelectedIndexChanged;
 			// 
@@ -161,7 +168,7 @@
 			tabPage0.Location = new Point(4, 24);
 			tabPage0.Name = "tabPage0";
 			tabPage0.Padding = new Padding(3);
-			tabPage0.Size = new Size(410, 425);
+			tabPage0.Size = new Size(520, 416);
 			tabPage0.TabIndex = 1;
 			tabPage0.Text = "server conf";
 			tabPage0.UseVisualStyleBackColor = true;
@@ -169,7 +176,7 @@
 			// button1
 			// 
 			button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-			button1.Location = new Point(329, 347);
+			button1.Location = new Point(439, 387);
 			button1.Name = "button1";
 			button1.Size = new Size(75, 23);
 			button1.TabIndex = 1;
@@ -182,12 +189,13 @@
 			txtConf.AcceptsReturn = true;
 			txtConf.AcceptsTab = true;
 			txtConf.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			txtConf.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			txtConf.Location = new Point(3, 3);
 			txtConf.Multiline = true;
 			txtConf.Name = "txtConf";
 			txtConf.ReadOnly = true;
 			txtConf.ScrollBars = ScrollBars.Both;
-			txtConf.Size = new Size(401, 338);
+			txtConf.Size = new Size(511, 378);
 			txtConf.TabIndex = 0;
 			// 
 			// tabPage1
@@ -201,7 +209,7 @@
 			tabPage1.Location = new Point(4, 24);
 			tabPage1.Name = "tabPage1";
 			tabPage1.Padding = new Padding(3);
-			tabPage1.Size = new Size(410, 425);
+			tabPage1.Size = new Size(520, 416);
 			tabPage1.TabIndex = 0;
 			tabPage1.Text = "server settings";
 			tabPage1.UseVisualStyleBackColor = true;
@@ -209,6 +217,7 @@
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox1.Controls.Add(button3);
 			groupBox1.Controls.Add(button2);
 			groupBox1.Controls.Add(comboBox1);
 			groupBox1.Controls.Add(txtEndpoint);
@@ -226,18 +235,28 @@
 			groupBox1.Enabled = false;
 			groupBox1.Location = new Point(6, 48);
 			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new Size(398, 342);
+			groupBox1.Size = new Size(508, 333);
 			groupBox1.TabIndex = 13;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "server";
 			// 
+			// button3
+			// 
+			button3.Location = new Point(256, 59);
+			button3.Name = "button3";
+			button3.Size = new Size(135, 23);
+			button3.TabIndex = 20;
+			button3.Text = "Generate PublicKey";
+			button3.UseVisualStyleBackColor = true;
+			button3.Click += GenersatePublicKey_Click;
+			// 
 			// button2
 			// 
-			button2.Location = new Point(74, 114);
+			button2.Location = new Point(73, 59);
 			button2.Name = "button2";
-			button2.Size = new Size(108, 23);
+			button2.Size = new Size(95, 23);
 			button2.TabIndex = 19;
-			button2.Text = "Renew keys";
+			button2.Text = "Renew Keys";
 			button2.UseVisualStyleBackColor = true;
 			button2.Click += RenewKeys_Click;
 			// 
@@ -253,9 +272,10 @@
 			// 
 			// txtEndpoint
 			// 
+			txtEndpoint.Font = new Font("Consolas", 8.25F);
 			txtEndpoint.Location = new Point(74, 22);
 			txtEndpoint.Name = "txtEndpoint";
-			txtEndpoint.Size = new Size(318, 23);
+			txtEndpoint.Size = new Size(318, 20);
 			txtEndpoint.TabIndex = 11;
 			// 
 			// label6
@@ -271,7 +291,7 @@
 			// 
 			buttonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			buttonSave.Enabled = false;
-			buttonSave.Location = new Point(322, 399);
+			buttonSave.Location = new Point(432, 390);
 			buttonSave.Name = "buttonSave";
 			buttonSave.Size = new Size(75, 23);
 			buttonSave.TabIndex = 18;
@@ -283,7 +303,7 @@
 			// 
 			buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			buttonCancel.Enabled = false;
-			buttonCancel.Location = new Point(202, 399);
+			buttonCancel.Location = new Point(312, 390);
 			buttonCancel.Name = "buttonCancel";
 			buttonCancel.Size = new Size(75, 23);
 			buttonCancel.TabIndex = 17;
@@ -294,7 +314,7 @@
 			// buttonEdit
 			// 
 			buttonEdit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-			buttonEdit.Location = new Point(121, 399);
+			buttonEdit.Location = new Point(231, 390);
 			buttonEdit.Name = "buttonEdit";
 			buttonEdit.Size = new Size(75, 23);
 			buttonEdit.TabIndex = 16;
@@ -305,7 +325,8 @@
 			// lblName
 			// 
 			lblName.AutoSize = true;
-			lblName.Location = new Point(68, 21);
+			lblName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			lblName.Location = new Point(80, 21);
 			lblName.Name = "lblName";
 			lblName.Size = new Size(16, 15);
 			lblName.TabIndex = 15;
@@ -316,9 +337,9 @@
 			label7.AutoSize = true;
 			label7.Location = new Point(24, 21);
 			label7.Name = "label7";
-			label7.Size = new Size(39, 15);
+			label7.Size = new Size(42, 15);
 			label7.TabIndex = 14;
-			label7.Text = "Name";
+			label7.Text = "Name:";
 			// 
 			// UserControlServer
 			// 
@@ -326,7 +347,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(tabControl1);
 			Name = "UserControlServer";
-			Size = new Size(418, 453);
+			Size = new Size(528, 444);
 			tabControl1.ResumeLayout(false);
 			tabPage0.ResumeLayout(false);
 			tabPage0.PerformLayout();
@@ -364,5 +385,6 @@
 		private Label label6;
 		private ComboBox comboBox1;
 		private Button button2;
+		private Button button3;
 	}
 }

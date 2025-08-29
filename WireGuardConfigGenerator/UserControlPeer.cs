@@ -141,4 +141,19 @@ public partial class UserControlPeer : UserControl
 	{
 		await RenewKeysAsync();
 	}
+
+	private async void GeneratePublicKey_Click(object sender, EventArgs e)
+	{
+		if (peer == null) return;
+
+		string privateKey = this.txtPrivateKey.Text;
+		string publicKey = await WireGuard.ExecuteAsync($"echo {privateKey} | wg pubkey");
+
+		peer.PrivateKey = privateKey;
+		peer.PubKey = publicKey;
+
+		this.txtPrivateKey.Text = peer.PrivateKey;
+		this.txtPublicKey.Text = peer.PubKey;
+		MakeConfig();
+	}
 }
