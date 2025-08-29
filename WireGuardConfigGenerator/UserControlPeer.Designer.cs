@@ -54,6 +54,8 @@
 			buttonEdit = new Button();
 			lblName = new Label();
 			label4 = new Label();
+			label7 = new Label();
+			txtDnsServers = new TextBox();
 			tabControl1.SuspendLayout();
 			tabPage0.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -128,6 +130,8 @@
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox1.Controls.Add(txtDnsServers);
+			groupBox1.Controls.Add(label7);
 			groupBox1.Controls.Add(button3);
 			groupBox1.Controls.Add(button1);
 			groupBox1.Controls.Add(comboBox1);
@@ -337,6 +341,23 @@
 			label4.TabIndex = 12;
 			label4.Text = "Name:";
 			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.Location = new Point(145, 191);
+			label7.Name = "label7";
+			label7.Size = new Size(69, 15);
+			label7.TabIndex = 22;
+			label7.Text = "DNS servers";
+			// 
+			// txtDnsServers
+			// 
+			txtDnsServers.Font = new Font("Consolas", 8.25F);
+			txtDnsServers.Location = new Point(240, 189);
+			txtDnsServers.Name = "txtDnsServers";
+			txtDnsServers.Size = new Size(159, 20);
+			txtDnsServers.TabIndex = 23;
+			// 
 			// UserControlPeer
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -381,5 +402,7 @@
 		private ComboBox comboBox1;
 		private Button button1;
 		private Button button3;
+		private TextBox txtDnsServers;
+		private Label label7;
 	}
 }

@@ -61,19 +61,19 @@
 			// toolStripMenuItem1
 			// 
 			toolStripMenuItem1.Name = "toolStripMenuItem1";
-			toolStripMenuItem1.Size = new Size(180, 22);
+			toolStripMenuItem1.Size = new Size(115, 22);
 			toolStripMenuItem1.Text = "Open ...";
 			toolStripMenuItem1.Click += OpenFile_Click;
 			// 
 			// toolStripSeparator1
 			// 
 			toolStripSeparator1.Name = "toolStripSeparator1";
-			toolStripSeparator1.Size = new Size(177, 6);
+			toolStripSeparator1.Size = new Size(112, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
 			exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			exitToolStripMenuItem.Size = new Size(180, 22);
+			exitToolStripMenuItem.Size = new Size(115, 22);
 			exitToolStripMenuItem.Text = "Exit";
 			exitToolStripMenuItem.Click += Exit_Click;
 			// 
@@ -96,6 +96,7 @@
 			splitContainer1.Panel1.Controls.Add(userControlTree1);
 			splitContainer1.Size = new Size(1022, 515);
 			splitContainer1.SplitterDistance = 339;
+			splitContainer1.SplitterWidth = 8;
 			splitContainer1.TabIndex = 2;
 			// 
 			// userControlTree1

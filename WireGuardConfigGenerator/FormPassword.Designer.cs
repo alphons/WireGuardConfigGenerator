@@ -31,75 +31,79 @@
 			label1 = new Label();
 			txtPassword = new TextBox();
 			btnOk = new Button();
-			btnCancel = new Button();
 			txtPath = new TextBox();
 			label2 = new Label();
+			button1 = new Button();
+			openFileDialog1 = new OpenFileDialog();
 			SuspendLayout();
 			// 
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(16, 47);
+			label1.Location = new Point(12, 57);
 			label1.Name = "label1";
 			label1.Size = new Size(57, 15);
 			label1.TabIndex = 0;
-			label1.Text = "password";
+			label1.Text = "Password";
 			// 
 			// txtPassword
 			// 
-			txtPassword.Location = new Point(16, 65);
+			txtPassword.Location = new Point(12, 75);
 			txtPassword.Name = "txtPassword";
 			txtPassword.PasswordChar = '*';
-			txtPassword.Size = new Size(167, 23);
+			txtPassword.Size = new Size(142, 23);
 			txtPassword.TabIndex = 1;
 			// 
 			// btnOk
 			// 
-			btnOk.Location = new Point(135, 94);
+			btnOk.Location = new Point(160, 74);
 			btnOk.Name = "btnOk";
-			btnOk.Size = new Size(48, 23);
+			btnOk.Size = new Size(75, 23);
 			btnOk.TabIndex = 2;
 			btnOk.Text = "Ok";
 			btnOk.UseVisualStyleBackColor = true;
 			btnOk.Click += Ok_Click;
 			// 
-			// btnCancel
-			// 
-			btnCancel.Location = new Point(54, 94);
-			btnCancel.Name = "btnCancel";
-			btnCancel.Size = new Size(75, 23);
-			btnCancel.TabIndex = 3;
-			btnCancel.Text = "Cancel";
-			btnCancel.UseVisualStyleBackColor = true;
-			btnCancel.Click += Cancel_Click;
-			// 
 			// txtPath
 			// 
-			txtPath.Location = new Point(16, 21);
+			txtPath.Location = new Point(12, 27);
 			txtPath.Name = "txtPath";
-			txtPath.Size = new Size(167, 23);
+			txtPath.Size = new Size(464, 23);
 			txtPath.TabIndex = 5;
 			txtPath.Text = "wireguard.db";
 			// 
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(16, 3);
+			label2.Location = new Point(12, 9);
 			label2.Name = "label2";
-			label2.Size = new Size(23, 15);
+			label2.Size = new Size(22, 15);
 			label2.TabIndex = 4;
-			label2.Text = "file";
+			label2.Text = "Db";
+			// 
+			// button1
+			// 
+			button1.Location = new Point(401, 56);
+			button1.Name = "button1";
+			button1.Size = new Size(75, 23);
+			button1.TabIndex = 6;
+			button1.Text = "File...";
+			button1.UseVisualStyleBackColor = true;
+			button1.Click += SelectFile_Click;
+			// 
+			// openFileDialog1
+			// 
+			openFileDialog1.FileName = "openFileDialog1";
 			// 
 			// FormPassword
 			// 
 			AcceptButton = btnOk;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			CancelButton = btnCancel;
-			ClientSize = new Size(193, 126);
+			ClientSize = new Size(488, 106);
+			Controls.Add(button1);
 			Controls.Add(txtPath);
 			Controls.Add(label2);
-			Controls.Add(btnCancel);
 			Controls.Add(btnOk);
 			Controls.Add(txtPassword);
 			Controls.Add(label1);
@@ -119,8 +123,9 @@
 		private Label label1;
 		private TextBox txtPassword;
 		private Button btnOk;
-		private Button btnCancel;
 		private TextBox txtPath;
 		private Label label2;
+		private Button button1;
+		private OpenFileDialog openFileDialog1;
 	}
 }

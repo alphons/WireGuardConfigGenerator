@@ -21,4 +21,18 @@ public partial class FormPassword : Form
 	{
 		this.Close();
 	}
+
+	private void SelectFile_Click(object sender, EventArgs e)
+	{
+		this.openFileDialog1.CheckPathExists = true;
+		this.openFileDialog1.InitialDirectory = AppContext.BaseDirectory;
+		this.openFileDialog1.Filter = "Wireguard db files|*.db|All Files|*.*";
+		this.openFileDialog1.FileName = this.txtPath.Text;
+		this.openFileDialog1.RestoreDirectory = true;
+
+		if (this.openFileDialog1.ShowDialog(this) == DialogResult.OK)
+		{
+			this.txtPath.Text = this.openFileDialog1.FileName.Replace(AppContext.BaseDirectory, string.Empty);
+		}
+	}
 }
