@@ -12,7 +12,7 @@ public static class CryptoUtils
 	private const int IVSize = 16;   // 128 bits AES IV
 	private const int Iterations = 100000; // PBKDF2 iterations
 
-	public static async Task<bool> CompressAndEncryptToFileAsync<T>(T model, string password, string filePath, JsonSerializerOptions? options = null, CancellationToken ct = default)
+	public static async Task<bool> CompressAndEncryptToFileAsync<T>(T model, string filePath, string password, JsonSerializerOptions? options = null, CancellationToken ct = default)
 	{
 		options ??= new JsonSerializerOptions
 		{

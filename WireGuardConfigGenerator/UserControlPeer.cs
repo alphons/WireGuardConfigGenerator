@@ -43,10 +43,12 @@ public partial class UserControlPeer : UserControl
 		config += $"""
 				{Environment.NewLine}
 				[Peer]
-				Eindpoint ={server.Endpoint}
+				Eindpoint = {server.Endpoint}
 				PublicKey = {server.PubKey}
-				AllowedIPs = {server.AllowedIPs}
-				PersistentKeepalive = {peer.PersistentKeepalive}
+				""" + (this.peer.OverrideAllowedIPs ? $"{Environment.NewLine}AllowedIPs = {peer.AllowedIPs}" : $"{Environment.NewLine}AllowedIPs = {server.AllowedIPs}") +
+				$"""
+				{Environment.NewLine}PersistentKeepalive = {peer.PersistentKeepalive}
+				
 				""";
 
 		this.txtConf.Text = config;
@@ -94,6 +96,9 @@ public partial class UserControlPeer : UserControl
 		this.comboBox1.SelectedItem = peer.Address?.Split('/')[1];
 		this.txtPersistenKeepAlive.Text = peer.PersistentKeepalive.ToString();
 		this.txtDnsServers.Text = peer.DNS;
+
+		this.chkOverrideAllowedIPs.Checked = this.peer.OverrideAllowedIPs;
+		this.txtAllowedIPs.Text = peer.AllowedIPs;
 	}
 
 
@@ -108,6 +113,8 @@ public partial class UserControlPeer : UserControl
 		this.peer.Address = $"{this.txtAddress.Text}/{this.comboBox1.SelectedItem}";
 		this.peer.PersistentKeepalive = int.TryParse(this.txtPersistenKeepAlive.Text, out int pka) ? pka : 0;
 		this.peer.DNS = this.txtDnsServers.Text;
+		this.peer.OverrideAllowedIPs = this.chkOverrideAllowedIPs.Checked;
+		this.peer.AllowedIPs = this.txtAllowedIPs.Text;
 
 		this.buttonEdit.Enabled = true;
 		this.buttonCancel.Enabled = false;
@@ -154,5 +161,10 @@ public partial class UserControlPeer : UserControl
 		this.txtPrivateKey.Text = peer.PrivateKey;
 		this.txtPublicKey.Text = peer.PubKey;
 		MakeConfig();
+	}
+
+	private void Override_CheckedChanged(object sender, EventArgs e)
+	{
+		this.txtAllowedIPs.Enabled = this.chkOverrideAllowedIPs.Checked;
 	}
 }

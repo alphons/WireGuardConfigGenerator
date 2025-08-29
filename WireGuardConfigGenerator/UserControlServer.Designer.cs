@@ -44,6 +44,8 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
+			txtAllowedIPs = new TextBox();
+			label8 = new Label();
 			button3 = new Button();
 			button2 = new Button();
 			comboBox1 = new ComboBox();
@@ -54,8 +56,7 @@
 			buttonEdit = new Button();
 			lblName = new Label();
 			label7 = new Label();
-			txtAllowedIPs = new TextBox();
-			label8 = new Label();
+			label9 = new Label();
 			tabControl1.SuspendLayout();
 			tabPage0.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -219,6 +220,7 @@
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox1.Controls.Add(label9);
 			groupBox1.Controls.Add(txtAllowedIPs);
 			groupBox1.Controls.Add(label8);
 			groupBox1.Controls.Add(button3);
@@ -243,6 +245,23 @@
 			groupBox1.TabIndex = 13;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "server";
+			// 
+			// txtAllowedIPs
+			// 
+			txtAllowedIPs.Font = new Font("Consolas", 8.25F);
+			txtAllowedIPs.Location = new Point(73, 172);
+			txtAllowedIPs.Name = "txtAllowedIPs";
+			txtAllowedIPs.Size = new Size(248, 20);
+			txtAllowedIPs.TabIndex = 22;
+			// 
+			// label8
+			// 
+			label8.AutoSize = true;
+			label8.Location = new Point(2, 175);
+			label8.Name = "label8";
+			label8.Size = new Size(65, 15);
+			label8.TabIndex = 21;
+			label8.Text = "AllowedIPs";
 			// 
 			// button3
 			// 
@@ -345,22 +364,14 @@
 			label7.TabIndex = 14;
 			label7.Text = "Name:";
 			// 
-			// txtAllowedIPs
+			// label9
 			// 
-			txtAllowedIPs.Font = new Font("Consolas", 8.25F);
-			txtAllowedIPs.Location = new Point(73, 172);
-			txtAllowedIPs.Name = "txtAllowedIPs";
-			txtAllowedIPs.Size = new Size(318, 20);
-			txtAllowedIPs.TabIndex = 22;
-			// 
-			// label8
-			// 
-			label8.AutoSize = true;
-			label8.Location = new Point(2, 175);
-			label8.Name = "label8";
-			label8.Size = new Size(65, 15);
-			label8.TabIndex = 21;
-			label8.Text = "AllowedIPs";
+			label9.AutoSize = true;
+			label9.Location = new Point(327, 177);
+			label9.Name = "label9";
+			label9.Size = new Size(153, 15);
+			label9.TabIndex = 23;
+			label9.Text = "(multiple subnets or 0.0.0.0)";
 			// 
 			// UserControlServer
 			// 
@@ -409,5 +420,6 @@
 		private Button button3;
 		private TextBox txtAllowedIPs;
 		private Label label8;
+		private Label label9;
 	}
 }

@@ -34,6 +34,9 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
+			chkOverrideAllowedIPs = new CheckBox();
+			txtAllowedIPs = new TextBox();
+			label5 = new Label();
 			txtDnsServers = new TextBox();
 			label7 = new Label();
 			button3 = new Button();
@@ -128,6 +131,9 @@
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox1.Controls.Add(chkOverrideAllowedIPs);
+			groupBox1.Controls.Add(txtAllowedIPs);
+			groupBox1.Controls.Add(label5);
 			groupBox1.Controls.Add(txtDnsServers);
 			groupBox1.Controls.Add(label7);
 			groupBox1.Controls.Add(button3);
@@ -151,10 +157,39 @@
 			groupBox1.TabStop = false;
 			groupBox1.Text = "peer";
 			// 
+			// chkOverrideAllowedIPs
+			// 
+			chkOverrideAllowedIPs.AutoSize = true;
+			chkOverrideAllowedIPs.Location = new Point(94, 158);
+			chkOverrideAllowedIPs.Name = "chkOverrideAllowedIPs";
+			chkOverrideAllowedIPs.Size = new Size(69, 19);
+			chkOverrideAllowedIPs.TabIndex = 26;
+			chkOverrideAllowedIPs.Text = "override";
+			chkOverrideAllowedIPs.UseVisualStyleBackColor = true;
+			chkOverrideAllowedIPs.CheckedChanged += Override_CheckedChanged;
+			// 
+			// txtAllowedIPs
+			// 
+			txtAllowedIPs.Enabled = false;
+			txtAllowedIPs.Font = new Font("Consolas", 8.25F);
+			txtAllowedIPs.Location = new Point(169, 158);
+			txtAllowedIPs.Name = "txtAllowedIPs";
+			txtAllowedIPs.Size = new Size(230, 20);
+			txtAllowedIPs.TabIndex = 25;
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.Location = new Point(10, 158);
+			label5.Name = "label5";
+			label5.Size = new Size(65, 15);
+			label5.TabIndex = 24;
+			label5.Text = "AllowedIPs";
+			// 
 			// txtDnsServers
 			// 
 			txtDnsServers.Font = new Font("Consolas", 8.25F);
-			txtDnsServers.Location = new Point(240, 160);
+			txtDnsServers.Location = new Point(240, 183);
 			txtDnsServers.Name = "txtDnsServers";
 			txtDnsServers.Size = new Size(159, 20);
 			txtDnsServers.TabIndex = 23;
@@ -162,7 +197,7 @@
 			// label7
 			// 
 			label7.AutoSize = true;
-			label7.Location = new Point(145, 162);
+			label7.Location = new Point(166, 184);
 			label7.Name = "label7";
 			label7.Size = new Size(69, 15);
 			label7.TabIndex = 22;
@@ -201,7 +236,7 @@
 			// txtPersistenKeepAlive
 			// 
 			txtPersistenKeepAlive.Font = new Font("Consolas", 8.25F);
-			txtPersistenKeepAlive.Location = new Point(81, 160);
+			txtPersistenKeepAlive.Location = new Point(81, 183);
 			txtPersistenKeepAlive.Name = "txtPersistenKeepAlive";
 			txtPersistenKeepAlive.Size = new Size(40, 20);
 			txtPersistenKeepAlive.TabIndex = 12;
@@ -209,7 +244,7 @@
 			// label8
 			// 
 			label8.AutoSize = true;
-			label8.Location = new Point(10, 163);
+			label8.Location = new Point(18, 184);
 			label8.Name = "label8";
 			label8.Size = new Size(59, 15);
 			label8.TabIndex = 11;
@@ -226,7 +261,7 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(15, 134);
+			label1.Location = new Point(25, 134);
 			label1.Name = "label1";
 			label1.Size = new Size(49, 15);
 			label1.TabIndex = 6;
@@ -260,7 +295,7 @@
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(15, 77);
+			label2.Location = new Point(13, 75);
 			label2.Name = "label2";
 			label2.Size = new Size(62, 15);
 			label2.TabIndex = 0;
@@ -277,7 +312,7 @@
 			// label6
 			// 
 			label6.AutoSize = true;
-			label6.Location = new Point(15, 106);
+			label6.Location = new Point(16, 104);
 			label6.Name = "label6";
 			label6.Size = new Size(59, 15);
 			label6.TabIndex = 2;
@@ -287,7 +322,7 @@
 			// 
 			buttonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			buttonSave.Enabled = false;
-			buttonSave.Location = new Point(381, 307);
+			buttonSave.Location = new Point(247, 307);
 			buttonSave.Name = "buttonSave";
 			buttonSave.Size = new Size(75, 23);
 			buttonSave.TabIndex = 22;
@@ -299,7 +334,7 @@
 			// 
 			buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			buttonCancel.Enabled = false;
-			buttonCancel.Location = new Point(248, 307);
+			buttonCancel.Location = new Point(378, 307);
 			buttonCancel.Name = "buttonCancel";
 			buttonCancel.Size = new Size(75, 23);
 			buttonCancel.TabIndex = 21;
@@ -381,5 +416,8 @@
 		private Button button3;
 		private TextBox txtDnsServers;
 		private Label label7;
+		private CheckBox chkOverrideAllowedIPs;
+		private TextBox txtAllowedIPs;
+		private Label label5;
 	}
 }

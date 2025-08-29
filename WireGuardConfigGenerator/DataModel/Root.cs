@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using WireGuardConfigGenerator.Helpers;
 
 namespace WireGuardConfigGenerator.DataModel;
@@ -7,16 +6,10 @@ namespace WireGuardConfigGenerator.DataModel;
 
 public class Root
 {
-	private static readonly JsonSerializerOptions options = new() 
-	{ 
-		WriteIndented = true,
-		DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
-	};
-
 	public List<Group> Groups { get; set; } = [];
 
 	public async Task SaveAsync(string path, string password) =>
-		await CryptoUtils.CompressAndEncryptToFileAsync(this, password, path);
+		await CryptoUtils.CompressAndEncryptToFileAsync(this, path, password);
 
 	public async Task LoadAsync(string path, string password)
 	{
@@ -65,14 +58,15 @@ public class Server : WireGuardItem
 	public bool UsePreDown { get; set; }
 	public bool UsePostDown { get; set; }
 	public string? Endpoint { get; set; }
+	public List<Peer> Peers { get; set; } = [];
 
 	[JsonIgnore]
 	public Group? ParentGroup { get; set; }
-	public List<Peer> Peers { get; set; } = [];
 }
 
 public class Peer : WireGuardItem
 {
+	public bool OverrideAllowedIPs { get; set; }
 	public int PersistentMaxConnections { get; set; }
 	public int PersistentMinConnections { get; set; }
 	public string? PersistentConnectionInterval { get; set; }
