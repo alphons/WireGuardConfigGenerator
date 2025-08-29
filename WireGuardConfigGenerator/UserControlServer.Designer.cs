@@ -54,6 +54,8 @@
 			buttonEdit = new Button();
 			lblName = new Label();
 			label7 = new Label();
+			txtAllowedIPs = new TextBox();
+			label8 = new Label();
 			tabControl1.SuspendLayout();
 			tabPage0.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -80,7 +82,7 @@
 			// txtPublicKey
 			// 
 			txtPublicKey.Font = new Font("Consolas", 8.25F);
-			txtPublicKey.Location = new Point(73, 117);
+			txtPublicKey.Location = new Point(73, 115);
 			txtPublicKey.Name = "txtPublicKey";
 			txtPublicKey.Size = new Size(318, 20);
 			txtPublicKey.TabIndex = 3;
@@ -97,7 +99,7 @@
 			// txtListenPort
 			// 
 			txtListenPort.Font = new Font("Consolas", 8.25F);
-			txtListenPort.Location = new Point(316, 156);
+			txtListenPort.Location = new Point(316, 145);
 			txtListenPort.Name = "txtListenPort";
 			txtListenPort.Size = new Size(76, 20);
 			txtListenPort.TabIndex = 5;
@@ -105,7 +107,7 @@
 			// label3
 			// 
 			label3.AutoSize = true;
-			label3.Location = new Point(250, 159);
+			label3.Location = new Point(250, 146);
 			label3.Name = "label3";
 			label3.Size = new Size(60, 15);
 			label3.TabIndex = 4;
@@ -114,7 +116,7 @@
 			// txtAddress
 			// 
 			txtAddress.Font = new Font("Consolas", 8.25F);
-			txtAddress.Location = new Point(74, 156);
+			txtAddress.Location = new Point(73, 143);
 			txtAddress.Name = "txtAddress";
 			txtAddress.Size = new Size(108, 20);
 			txtAddress.TabIndex = 7;
@@ -122,7 +124,7 @@
 			// label4
 			// 
 			label4.AutoSize = true;
-			label4.Location = new Point(18, 159);
+			label4.Location = new Point(17, 146);
 			label4.Name = "label4";
 			label4.Size = new Size(49, 15);
 			label4.TabIndex = 6;
@@ -133,17 +135,17 @@
 			txtPostUp.AcceptsReturn = true;
 			txtPostUp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 			txtPostUp.Font = new Font("Consolas", 8.25F);
-			txtPostUp.Location = new Point(74, 185);
+			txtPostUp.Location = new Point(73, 198);
 			txtPostUp.Multiline = true;
 			txtPostUp.Name = "txtPostUp";
 			txtPostUp.ScrollBars = ScrollBars.Both;
-			txtPostUp.Size = new Size(427, 142);
+			txtPostUp.Size = new Size(429, 129);
 			txtPostUp.TabIndex = 9;
 			// 
 			// label5
 			// 
 			label5.AutoSize = true;
-			label5.Location = new Point(23, 188);
+			label5.Location = new Point(22, 198);
 			label5.Name = "label5";
 			label5.Size = new Size(45, 15);
 			label5.TabIndex = 8;
@@ -217,6 +219,8 @@
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox1.Controls.Add(txtAllowedIPs);
+			groupBox1.Controls.Add(label8);
 			groupBox1.Controls.Add(button3);
 			groupBox1.Controls.Add(button2);
 			groupBox1.Controls.Add(comboBox1);
@@ -265,7 +269,7 @@
 			comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 			comboBox1.FormattingEnabled = true;
 			comboBox1.Items.AddRange(new object[] { "16", "24", "32" });
-			comboBox1.Location = new Point(188, 156);
+			comboBox1.Location = new Point(187, 143);
 			comboBox1.Name = "comboBox1";
 			comboBox1.Size = new Size(46, 23);
 			comboBox1.TabIndex = 13;
@@ -273,7 +277,7 @@
 			// txtEndpoint
 			// 
 			txtEndpoint.Font = new Font("Consolas", 8.25F);
-			txtEndpoint.Location = new Point(74, 22);
+			txtEndpoint.Location = new Point(73, 22);
 			txtEndpoint.Name = "txtEndpoint";
 			txtEndpoint.Size = new Size(318, 20);
 			txtEndpoint.TabIndex = 11;
@@ -326,7 +330,7 @@
 			// 
 			lblName.AutoSize = true;
 			lblName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lblName.Location = new Point(80, 21);
+			lblName.Location = new Point(79, 21);
 			lblName.Name = "lblName";
 			lblName.Size = new Size(16, 15);
 			lblName.TabIndex = 15;
@@ -340,6 +344,23 @@
 			label7.Size = new Size(42, 15);
 			label7.TabIndex = 14;
 			label7.Text = "Name:";
+			// 
+			// txtAllowedIPs
+			// 
+			txtAllowedIPs.Font = new Font("Consolas", 8.25F);
+			txtAllowedIPs.Location = new Point(73, 172);
+			txtAllowedIPs.Name = "txtAllowedIPs";
+			txtAllowedIPs.Size = new Size(318, 20);
+			txtAllowedIPs.TabIndex = 22;
+			// 
+			// label8
+			// 
+			label8.AutoSize = true;
+			label8.Location = new Point(2, 175);
+			label8.Name = "label8";
+			label8.Size = new Size(65, 15);
+			label8.TabIndex = 21;
+			label8.Text = "AllowedIPs";
 			// 
 			// UserControlServer
 			// 
@@ -386,5 +407,7 @@
 		private ComboBox comboBox1;
 		private Button button2;
 		private Button button3;
+		private TextBox txtAllowedIPs;
+		private Label label8;
 	}
 }

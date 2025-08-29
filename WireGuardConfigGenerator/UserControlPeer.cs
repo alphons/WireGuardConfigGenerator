@@ -33,9 +33,7 @@ public partial class UserControlPeer : UserControl
             PrivateKey = {this.peer.PrivateKey}
             ListenPort = {this.peer.ListenPort}
             Address = {this.peer.Address}
-            DNS = {this.peer.DNS}
-
-            """;
+            """ + (string.IsNullOrEmpty(peer.DNS) ? "" : $"{Environment.NewLine}DNS = {peer.DNS}{Environment.NewLine}");
 
 		var server = peer.ParentServer;
 
@@ -43,11 +41,11 @@ public partial class UserControlPeer : UserControl
 			return;
 
 		config += $"""
-				
+				{Environment.NewLine}
 				[Peer]
 				Eindpoint ={server.Endpoint}
 				PublicKey = {server.PubKey}
-				AllowedIPs = {peer.AllowedIPs}
+				AllowedIPs = {server.AllowedIPs}
 				PersistentKeepalive = {peer.PersistentKeepalive}
 				""";
 
@@ -94,7 +92,6 @@ public partial class UserControlPeer : UserControl
 		this.txtListenPort.Text = peer.ListenPort.ToString();
 		this.txtAddress.Text = peer.Address?.Split('/')[0];
 		this.comboBox1.SelectedItem = peer.Address?.Split('/')[1];
-		this.txtAllowedIPs.Text = peer.AllowedIPs;
 		this.txtPersistenKeepAlive.Text = peer.PersistentKeepalive.ToString();
 		this.txtDnsServers.Text = peer.DNS;
 	}
@@ -109,7 +106,6 @@ public partial class UserControlPeer : UserControl
 		this.peer.PubKey = this.txtPublicKey.Text;
 		this.peer.ListenPort = int.TryParse(this.txtListenPort.Text, out int port) ? port : 0;
 		this.peer.Address = $"{this.txtAddress.Text}/{this.comboBox1.SelectedItem}";
-		this.peer.AllowedIPs = this.txtAllowedIPs.Text;
 		this.peer.PersistentKeepalive = int.TryParse(this.txtPersistenKeepAlive.Text, out int pka) ? pka : 0;
 		this.peer.DNS = this.txtDnsServers.Text;
 

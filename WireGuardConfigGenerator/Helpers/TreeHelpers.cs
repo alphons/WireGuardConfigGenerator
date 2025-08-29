@@ -86,6 +86,7 @@ public static class TreeHelpers
 			ParentGroup = group,
 			ListenPort = settings.ListenPort + (group.Servers.Count * 100) - ((root.Groups.Count - 1) * 1000),
 			Address = settings.Address,
+			AllowedIPs = $"{GetSubnet(settings.Address)}.0/24",
 			Endpoint = settings.Endpoint,
 			PostUp = string.Format(settings.PostUp, name),
 			PrivateKey = privateKey,
@@ -112,7 +113,6 @@ public static class TreeHelpers
 			Name = $"Peer {offset}",
 			Address = $"{subnet}.{offset + 1}/32",
 			ListenPort = server.ListenPort + offset + 1,
-			AllowedIPs = $"{server.Address.Split('/')[0]}/24",
 			PersistentKeepalive = settings.PersistentKeepalive,
 			PrivateKey = privateKey,
 			PubKey = publicKey

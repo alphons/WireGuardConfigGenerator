@@ -34,13 +34,13 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
+			txtDnsServers = new TextBox();
+			label7 = new Label();
 			button3 = new Button();
 			button1 = new Button();
 			comboBox1 = new ComboBox();
 			txtPersistenKeepAlive = new TextBox();
 			label8 = new Label();
-			txtAllowedIPs = new TextBox();
-			label5 = new Label();
 			txtPrivateKey = new TextBox();
 			label1 = new Label();
 			txtListenPort = new TextBox();
@@ -54,8 +54,6 @@
 			buttonEdit = new Button();
 			lblName = new Label();
 			label4 = new Label();
-			label7 = new Label();
-			txtDnsServers = new TextBox();
 			tabControl1.SuspendLayout();
 			tabPage0.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -137,8 +135,6 @@
 			groupBox1.Controls.Add(comboBox1);
 			groupBox1.Controls.Add(txtPersistenKeepAlive);
 			groupBox1.Controls.Add(label8);
-			groupBox1.Controls.Add(txtAllowedIPs);
-			groupBox1.Controls.Add(label5);
 			groupBox1.Controls.Add(txtPrivateKey);
 			groupBox1.Controls.Add(label1);
 			groupBox1.Controls.Add(txtListenPort);
@@ -154,6 +150,23 @@
 			groupBox1.TabIndex = 19;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "peer";
+			// 
+			// txtDnsServers
+			// 
+			txtDnsServers.Font = new Font("Consolas", 8.25F);
+			txtDnsServers.Location = new Point(240, 160);
+			txtDnsServers.Name = "txtDnsServers";
+			txtDnsServers.Size = new Size(159, 20);
+			txtDnsServers.TabIndex = 23;
+			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.Location = new Point(145, 162);
+			label7.Name = "label7";
+			label7.Size = new Size(69, 15);
+			label7.TabIndex = 22;
+			label7.Text = "DNS servers";
 			// 
 			// button3
 			// 
@@ -188,7 +201,7 @@
 			// txtPersistenKeepAlive
 			// 
 			txtPersistenKeepAlive.Font = new Font("Consolas", 8.25F);
-			txtPersistenKeepAlive.Location = new Point(81, 189);
+			txtPersistenKeepAlive.Location = new Point(81, 160);
 			txtPersistenKeepAlive.Name = "txtPersistenKeepAlive";
 			txtPersistenKeepAlive.Size = new Size(40, 20);
 			txtPersistenKeepAlive.TabIndex = 12;
@@ -196,28 +209,11 @@
 			// label8
 			// 
 			label8.AutoSize = true;
-			label8.Location = new Point(10, 192);
+			label8.Location = new Point(10, 163);
 			label8.Name = "label8";
 			label8.Size = new Size(59, 15);
 			label8.TabIndex = 11;
 			label8.Text = "KeepAlive";
-			// 
-			// txtAllowedIPs
-			// 
-			txtAllowedIPs.Font = new Font("Consolas", 8.25F);
-			txtAllowedIPs.Location = new Point(81, 160);
-			txtAllowedIPs.Name = "txtAllowedIPs";
-			txtAllowedIPs.Size = new Size(318, 20);
-			txtAllowedIPs.TabIndex = 9;
-			// 
-			// label5
-			// 
-			label5.AutoSize = true;
-			label5.Location = new Point(10, 163);
-			label5.Name = "label5";
-			label5.Size = new Size(65, 15);
-			label5.TabIndex = 8;
-			label5.Text = "AllowedIPs";
 			// 
 			// txtPrivateKey
 			// 
@@ -341,23 +337,6 @@
 			label4.TabIndex = 12;
 			label4.Text = "Name:";
 			// 
-			// label7
-			// 
-			label7.AutoSize = true;
-			label7.Location = new Point(145, 191);
-			label7.Name = "label7";
-			label7.Size = new Size(69, 15);
-			label7.TabIndex = 22;
-			label7.Text = "DNS servers";
-			// 
-			// txtDnsServers
-			// 
-			txtDnsServers.Font = new Font("Consolas", 8.25F);
-			txtDnsServers.Location = new Point(240, 189);
-			txtDnsServers.Name = "txtDnsServers";
-			txtDnsServers.Size = new Size(159, 20);
-			txtDnsServers.TabIndex = 23;
-			// 
 			// UserControlPeer
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -395,8 +374,6 @@
 		private Button buttonEdit;
 		private Button button2;
 		private TextBox txtConf;
-		private TextBox txtAllowedIPs;
-		private Label label5;
 		private TextBox txtPersistenKeepAlive;
 		private Label label8;
 		private ComboBox comboBox1;

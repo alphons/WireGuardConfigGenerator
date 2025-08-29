@@ -28,6 +28,7 @@ public partial class UserControlServer : UserControl
 		this.txtAddress.Text = server.Address?.Split('/')[0];
 		this.comboBox1.SelectedItem = server.Address?.Split('/')[1];
 		this.txtPostUp.Text = server.PostUp;
+		this.txtAllowedIPs.Text = server.AllowedIPs;
 	}
 
 	private void Edit_Click(object sender, EventArgs e)
@@ -61,6 +62,7 @@ public partial class UserControlServer : UserControl
 		this.server.Address = $"{this.txtAddress.Text}/{this.comboBox1.SelectedItem}";
 		this.server.PostUp = this.txtPostUp.Text;
 		this.server.PubKey = this.txtPublicKey.Text;
+		this.server.AllowedIPs = this.txtAllowedIPs.Text;
 
 		this.buttonEdit.Enabled = true;
 		this.buttonCancel.Enabled = false;
@@ -93,9 +95,8 @@ public partial class UserControlServer : UserControl
             PrivateKey = {this.server.PrivateKey}
             ListenPort = {this.server.ListenPort}
             Address = {this.server.Address}
-            PostUp = {this.server.PostUp}
-
-            """;
+            """ + (string.IsNullOrEmpty(server.PostUp) ? "" : $"{Environment.NewLine}PostUp = {server.PostUp}{Environment.NewLine}") +
+			$"{Environment.NewLine}";
 
 		foreach (var peer in server.Peers)
 		{
