@@ -47,4 +47,13 @@ public partial class FormPassword : Form
 	{
 		this.lblError.Text = string.Empty;
 	}
+
+	private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+	{
+		if (e.KeyCode == Keys.Enter)
+		{
+			e.Handled = true;
+			Ok_Click(sender, e);
+		}
+	}
 }

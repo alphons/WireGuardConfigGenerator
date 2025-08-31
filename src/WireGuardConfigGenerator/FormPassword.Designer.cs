@@ -56,6 +56,7 @@
 			txtPassword.Size = new Size(142, 23);
 			txtPassword.TabIndex = 1;
 			txtPassword.TextChanged += Password_TextChanged;
+			txtPassword.KeyDown += txtPassword_KeyDown;
 			// 
 			// btnOk
 			// 

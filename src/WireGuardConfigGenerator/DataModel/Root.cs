@@ -14,8 +14,12 @@ public class Root
 	[JsonIgnore]
 	public bool IsDirty => HashLoaded != CryptoUtils.GeHash(this);
 
-	public async Task SaveAsync(string path, string password) =>
+	public async Task SaveAsync(string path, string password)
+	{
 		await CryptoUtils.CompressAndEncryptToFileAsync(this, path, password);
+
+		HashLoaded = CryptoUtils.GeHash(this);
+	}
 
 	public async Task LoadAsync(string path, string password)
 	{
@@ -26,7 +30,7 @@ public class Root
 			{
 				Groups = root.Groups;
 
-				HashLoaded = CryptoUtils.GeHash(root);
+				HashLoaded = CryptoUtils.GeHash(this);
 			}
 		}
 	}
