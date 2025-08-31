@@ -56,4 +56,14 @@ public partial class FormPassword : Form
 			Ok_Click(sender, e);
 		}
 	}
+
+	private void Password_MouseDown(object sender, MouseEventArgs e)
+	{
+		this.txtPassword.PasswordChar = '\0';
+	}
+
+	private void Password_MouseUp(object sender, MouseEventArgs e)
+	{
+		this.txtPassword.PasswordChar = '*';
+	}
 }

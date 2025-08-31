@@ -37,6 +37,7 @@
 			openFileDialog1 = new OpenFileDialog();
 			btnCancel = new Button();
 			lblError = new Label();
+			button2 = new Button();
 			SuspendLayout();
 			// 
 			// label1
@@ -118,11 +119,23 @@
 			lblError.Size = new Size(0, 15);
 			lblError.TabIndex = 8;
 			// 
+			// button2
+			// 
+			button2.Location = new Point(160, 81);
+			button2.Name = "button2";
+			button2.Size = new Size(28, 23);
+			button2.TabIndex = 9;
+			button2.Text = "👀";
+			button2.UseVisualStyleBackColor = true;
+			button2.MouseDown += Password_MouseDown;
+			button2.MouseUp += Password_MouseUp;
+			// 
 			// FormPassword
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(488, 152);
+			Controls.Add(button2);
 			Controls.Add(lblError);
 			Controls.Add(btnCancel);
 			Controls.Add(button1);
@@ -153,5 +166,6 @@
 		private OpenFileDialog openFileDialog1;
 		private Button btnCancel;
 		private Label lblError;
+		private Button button2;
 	}
 }
