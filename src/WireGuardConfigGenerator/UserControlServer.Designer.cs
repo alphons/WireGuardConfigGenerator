@@ -44,6 +44,8 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
+			label11 = new Label();
+			txtPersistentKeepalive = new TextBox();
 			label10 = new Label();
 			txtDns = new TextBox();
 			label9 = new Label();
@@ -59,8 +61,6 @@
 			buttonEdit = new Button();
 			lblName = new Label();
 			label7 = new Label();
-			label11 = new Label();
-			txtPersistentKeepalive = new TextBox();
 			tabControl1.SuspendLayout();
 			tabPage0.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -254,6 +254,23 @@
 			groupBox1.TabStop = false;
 			groupBox1.Text = "server";
 			// 
+			// label11
+			// 
+			label11.AutoSize = true;
+			label11.Location = new Point(202, 170);
+			label11.Name = "label11";
+			label11.Size = new Size(108, 15);
+			label11.TabIndex = 27;
+			label11.Text = "PersistentKeepalive";
+			// 
+			// txtPersistentKeepalive
+			// 
+			txtPersistentKeepalive.Font = new Font("Consolas", 8.25F);
+			txtPersistentKeepalive.Location = new Point(316, 169);
+			txtPersistentKeepalive.Name = "txtPersistentKeepalive";
+			txtPersistentKeepalive.Size = new Size(76, 20);
+			txtPersistentKeepalive.TabIndex = 26;
+			// 
 			// label10
 			// 
 			label10.AutoSize = true;
@@ -348,7 +365,7 @@
 			// 
 			buttonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			buttonSave.Enabled = false;
-			buttonSave.Location = new Point(432, 390);
+			buttonSave.Location = new Point(312, 390);
 			buttonSave.Name = "buttonSave";
 			buttonSave.Size = new Size(75, 23);
 			buttonSave.TabIndex = 18;
@@ -360,7 +377,7 @@
 			// 
 			buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			buttonCancel.Enabled = false;
-			buttonCancel.Location = new Point(312, 390);
+			buttonCancel.Location = new Point(433, 390);
 			buttonCancel.Name = "buttonCancel";
 			buttonCancel.Size = new Size(75, 23);
 			buttonCancel.TabIndex = 17;
@@ -397,23 +414,6 @@
 			label7.Size = new Size(42, 15);
 			label7.TabIndex = 14;
 			label7.Text = "Name:";
-			// 
-			// label11
-			// 
-			label11.AutoSize = true;
-			label11.Location = new Point(202, 170);
-			label11.Name = "label11";
-			label11.Size = new Size(108, 15);
-			label11.TabIndex = 27;
-			label11.Text = "PersistentKeepalive";
-			// 
-			// txtPersistentKeepalive
-			// 
-			txtPersistentKeepalive.Font = new Font("Consolas", 8.25F);
-			txtPersistentKeepalive.Location = new Point(316, 169);
-			txtPersistentKeepalive.Name = "txtPersistentKeepalive";
-			txtPersistentKeepalive.Size = new Size(76, 20);
-			txtPersistentKeepalive.TabIndex = 26;
 			// 
 			// UserControlServer
 			// 
