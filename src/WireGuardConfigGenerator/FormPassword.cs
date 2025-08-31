@@ -8,17 +8,24 @@ public partial class FormPassword : Form
 	}
 
 	public string Password => this.txtPassword.Text.Trim();
-
 	public string Path => this.txtPath.Text.Trim();
 
 	private void Ok_Click(object sender, EventArgs e)
 	{
-		this.DialogResult = DialogResult.OK;
-		this.Close();
+		if (this.txtPassword.Text.Length < 8)
+		{
+			this.lblError.Text = "Min. password length 8 chars";
+		}
+		else
+		{
+			this.DialogResult = DialogResult.OK;
+			this.Close();
+		}
 	}
 
 	private void Cancel_Click(object sender, EventArgs e)
 	{
+		this.DialogResult = DialogResult.Cancel;
 		this.Close();
 	}
 
@@ -34,5 +41,10 @@ public partial class FormPassword : Form
 		{
 			this.txtPath.Text = this.openFileDialog1.FileName.Replace(AppContext.BaseDirectory, string.Empty);
 		}
+	}
+
+	private void Password_TextChanged(object sender, EventArgs e)
+	{
+		this.lblError.Text = string.Empty;
 	}
 }

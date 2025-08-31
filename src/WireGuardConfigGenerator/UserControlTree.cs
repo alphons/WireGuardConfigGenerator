@@ -8,6 +8,9 @@ public partial class UserControlTree : UserControl
 	private readonly AppSettings Settings;
 
 	private readonly Root root = new();
+
+	public bool IsDirty => this.root.IsDirty;
+
 	public UserControlTree()
 	{
 		InitializeComponent();
@@ -21,12 +24,13 @@ public partial class UserControlTree : UserControl
 
 	public async Task LoadAsync(string path, string password)
 	{
-		if (this.ParentForm is Form1 form)
-			form.FormClosing += async (s, e) => await root.SaveAsync(path, password);
-
 		await TreeHelpers.LoadTreeAsync(this.treeView1, root, path, password);
 	}
 
+	public async Task SaveAsync(string path, string password)
+	{
+		await root.SaveAsync(path, password);
+	}
 
 	private void ShowContextMenu(Point location)
 	{

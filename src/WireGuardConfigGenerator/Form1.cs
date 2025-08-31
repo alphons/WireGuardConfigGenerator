@@ -18,7 +18,26 @@ public partial class Form1 : Form
 	{
 		var f = new FormPassword();
 
-		if( f.ShowDialog(this) == DialogResult.OK)
+		if (f.ShowDialog(this) == DialogResult.OK)
 			await this.userControlTree1.LoadAsync(f.Path, f.Password);
+	}
+
+	private async void Form_FormClosing(object sender, FormClosingEventArgs e)
+	{
+		if (!this.userControlTree1.IsDirty)
+			return;
+
+		var f = new FormPassword();
+
+		if (f.ShowDialog(this) == DialogResult.OK)
+			await this.userControlTree1.SaveAsync(f.Path, f.Password);
+	}
+
+	private async void Save_Click(object sender, EventArgs e)
+	{
+		var f = new FormPassword();
+
+		if (f.ShowDialog(this) == DialogResult.OK)
+			await this.userControlTree1.SaveAsync(f.Path, f.Password);
 	}
 }

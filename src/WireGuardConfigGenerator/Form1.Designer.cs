@@ -36,6 +36,7 @@
 			statusStrip1 = new StatusStrip();
 			splitContainer1 = new SplitContainer();
 			userControlTree1 = new UserControlTree();
+			toolStripMenuItem2 = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
 			splitContainer1.Panel1.SuspendLayout();
@@ -53,7 +54,7 @@
 			// 
 			// fileToolStripMenuItem
 			// 
-			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripSeparator1, exitToolStripMenuItem });
+			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripSeparator1, exitToolStripMenuItem });
 			fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			fileToolStripMenuItem.Size = new Size(37, 20);
 			fileToolStripMenuItem.Text = "File";
@@ -61,19 +62,19 @@
 			// toolStripMenuItem1
 			// 
 			toolStripMenuItem1.Name = "toolStripMenuItem1";
-			toolStripMenuItem1.Size = new Size(115, 22);
+			toolStripMenuItem1.Size = new Size(180, 22);
 			toolStripMenuItem1.Text = "Open ...";
 			toolStripMenuItem1.Click += OpenFile_Click;
 			// 
 			// toolStripSeparator1
 			// 
 			toolStripSeparator1.Name = "toolStripSeparator1";
-			toolStripSeparator1.Size = new Size(112, 6);
+			toolStripSeparator1.Size = new Size(177, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
 			exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			exitToolStripMenuItem.Size = new Size(115, 22);
+			exitToolStripMenuItem.Size = new Size(180, 22);
 			exitToolStripMenuItem.Text = "Exit";
 			exitToolStripMenuItem.Click += Exit_Click;
 			// 
@@ -107,6 +108,13 @@
 			userControlTree1.Size = new Size(339, 515);
 			userControlTree1.TabIndex = 0;
 			// 
+			// toolStripMenuItem2
+			// 
+			toolStripMenuItem2.Name = "toolStripMenuItem2";
+			toolStripMenuItem2.Size = new Size(180, 22);
+			toolStripMenuItem2.Text = "Save ...";
+			toolStripMenuItem2.Click += Save_Click;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -118,6 +126,7 @@
 			MainMenuStrip = menuStrip1;
 			Name = "Form1";
 			Text = "WireGuardConfigGenerator";
+			FormClosing += Form_FormClosing;
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
 			splitContainer1.Panel1.ResumeLayout(false);
@@ -137,5 +146,6 @@
 		private UserControlTree userControlTree1;
 		private ToolStripMenuItem toolStripMenuItem1;
 		private ToolStripSeparator toolStripSeparator1;
+		private ToolStripMenuItem toolStripMenuItem2;
 	}
 }

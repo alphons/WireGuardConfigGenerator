@@ -1,5 +1,6 @@
 ﻿using System.IO.Compression;
 using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -12,16 +13,42 @@ public static class CryptoUtils
 	private const int IVSize = 16;   // 128 bits AES IV
 	private const int Iterations = 100000; // PBKDF2 iterations
 
-	public static async Task<bool> CompressAndEncryptToFileAsync<T>(T model, string filePath, string password, JsonSerializerOptions? options = null, CancellationToken ct = default)
+
+	private static string GetJson<T>(T model, JsonSerializerOptions? options = null)
 	{
 		options ??= new JsonSerializerOptions
 		{
 			WriteIndented = false,
 			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
 		};
-
-		// 1. to JSON
 		string json = JsonSerializer.Serialize(model, options);
+
+		return json;
+	}
+
+	private static string GetMd5Hash(string input)
+	{
+		byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+
+		string md5hash =  BitConverter.ToString(MD5.HashData(inputBytes)).Replace("-", "").ToLower();
+
+		return md5hash;
+	}
+
+
+	public static string GeHash<T>(T model)
+	{
+		string json = GetJson<T>(model);
+
+		string hash = GetMd5Hash(json);
+
+		return hash;
+	}
+
+	public static async Task<bool> CompressAndEncryptToFileAsync<T>(T model, string filePath, string password, JsonSerializerOptions? options = null, CancellationToken ct = default)
+	{
+		// 1. Get Json from model
+		var json = GetJson<T>(model, options);
 
 		// 2. Compressing using GZIP
 		byte[] compressed;
