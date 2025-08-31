@@ -101,6 +101,22 @@ public static class CryptoUtils
 
 	public static async Task<T?> DecryptAndDecompressFromFileAsync<T>(string filePath, string password, JsonSerializerOptions? options = null, CancellationToken ct = default)
 	{
+		try
+		{
+			return await InternalDecryptAndDecompressFromFileAsync<T>(filePath, password, options, ct);
+
+		}
+		catch
+		{
+			return default;
+		}
+	}
+
+	private static async Task<T?> InternalDecryptAndDecompressFromFileAsync<T>(string filePath, string password, JsonSerializerOptions? options = null, CancellationToken ct = default)
+	{
+		if (!File.Exists(filePath))
+			return default;
+
 		options ??= new JsonSerializerOptions();
 
 		// 1. Asynch read file
@@ -108,7 +124,8 @@ public static class CryptoUtils
 
 		// 2. Salt and ciphertext
 		if (encryptedData.Length < SaltSize)
-			throw new ArgumentException("Encrypted data is too short to contain salt.");
+			return default;
+		//throw new ArgumentException("Encrypted data is too short to contain salt.");
 
 		byte[] salt = new byte[SaltSize];
 		byte[] ciphertext = new byte[encryptedData.Length - SaltSize];

@@ -34,7 +34,9 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
-			chkOverrideAllowedIPs = new CheckBox();
+			chkUseKeepAlive = new CheckBox();
+			chkUseDns = new CheckBox();
+			chkUseAllowedIPs = new CheckBox();
 			txtAllowedIPs = new TextBox();
 			label5 = new Label();
 			txtDnsServers = new TextBox();
@@ -131,7 +133,9 @@
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-			groupBox1.Controls.Add(chkOverrideAllowedIPs);
+			groupBox1.Controls.Add(chkUseKeepAlive);
+			groupBox1.Controls.Add(chkUseDns);
+			groupBox1.Controls.Add(chkUseAllowedIPs);
 			groupBox1.Controls.Add(txtAllowedIPs);
 			groupBox1.Controls.Add(label5);
 			groupBox1.Controls.Add(txtDnsServers);
@@ -157,16 +161,38 @@
 			groupBox1.TabStop = false;
 			groupBox1.Text = "peer";
 			// 
-			// chkOverrideAllowedIPs
+			// chkUseKeepAlive
 			// 
-			chkOverrideAllowedIPs.AutoSize = true;
-			chkOverrideAllowedIPs.Location = new Point(94, 158);
-			chkOverrideAllowedIPs.Name = "chkOverrideAllowedIPs";
-			chkOverrideAllowedIPs.Size = new Size(69, 19);
-			chkOverrideAllowedIPs.TabIndex = 26;
-			chkOverrideAllowedIPs.Text = "override";
-			chkOverrideAllowedIPs.UseVisualStyleBackColor = true;
-			chkOverrideAllowedIPs.CheckedChanged += Override_CheckedChanged;
+			chkUseKeepAlive.AutoSize = true;
+			chkUseKeepAlive.Location = new Point(94, 211);
+			chkUseKeepAlive.Name = "chkUseKeepAlive";
+			chkUseKeepAlive.Size = new Size(69, 19);
+			chkUseKeepAlive.TabIndex = 30;
+			chkUseKeepAlive.Text = "override";
+			chkUseKeepAlive.UseVisualStyleBackColor = true;
+			chkUseKeepAlive.CheckedChanged += UseKeepAlive_CheckedChanged;
+			// 
+			// chkUseDns
+			// 
+			chkUseDns.AutoSize = true;
+			chkUseDns.Location = new Point(94, 185);
+			chkUseDns.Name = "chkUseDns";
+			chkUseDns.Size = new Size(69, 19);
+			chkUseDns.TabIndex = 29;
+			chkUseDns.Text = "override";
+			chkUseDns.UseVisualStyleBackColor = true;
+			chkUseDns.CheckedChanged += Dns_CheckedChanged;
+			// 
+			// chkUseAllowedIPs
+			// 
+			chkUseAllowedIPs.AutoSize = true;
+			chkUseAllowedIPs.Location = new Point(94, 158);
+			chkUseAllowedIPs.Name = "chkUseAllowedIPs";
+			chkUseAllowedIPs.Size = new Size(69, 19);
+			chkUseAllowedIPs.TabIndex = 26;
+			chkUseAllowedIPs.Text = "override";
+			chkUseAllowedIPs.UseVisualStyleBackColor = true;
+			chkUseAllowedIPs.CheckedChanged += AllowedIP_CheckedChanged;
 			// 
 			// txtAllowedIPs
 			// 
@@ -180,7 +206,7 @@
 			// label5
 			// 
 			label5.AutoSize = true;
-			label5.Location = new Point(10, 158);
+			label5.Location = new Point(10, 162);
 			label5.Name = "label5";
 			label5.Size = new Size(65, 15);
 			label5.TabIndex = 24;
@@ -188,8 +214,9 @@
 			// 
 			// txtDnsServers
 			// 
+			txtDnsServers.Enabled = false;
 			txtDnsServers.Font = new Font("Consolas", 8.25F);
-			txtDnsServers.Location = new Point(240, 183);
+			txtDnsServers.Location = new Point(169, 184);
 			txtDnsServers.Name = "txtDnsServers";
 			txtDnsServers.Size = new Size(159, 20);
 			txtDnsServers.TabIndex = 23;
@@ -197,7 +224,7 @@
 			// label7
 			// 
 			label7.AutoSize = true;
-			label7.Location = new Point(166, 184);
+			label7.Location = new Point(6, 186);
 			label7.Name = "label7";
 			label7.Size = new Size(69, 15);
 			label7.TabIndex = 22;
@@ -235,8 +262,9 @@
 			// 
 			// txtPersistenKeepAlive
 			// 
+			txtPersistenKeepAlive.Enabled = false;
 			txtPersistenKeepAlive.Font = new Font("Consolas", 8.25F);
-			txtPersistenKeepAlive.Location = new Point(81, 183);
+			txtPersistenKeepAlive.Location = new Point(169, 210);
 			txtPersistenKeepAlive.Name = "txtPersistenKeepAlive";
 			txtPersistenKeepAlive.Size = new Size(40, 20);
 			txtPersistenKeepAlive.TabIndex = 12;
@@ -244,7 +272,7 @@
 			// label8
 			// 
 			label8.AutoSize = true;
-			label8.Location = new Point(18, 184);
+			label8.Location = new Point(13, 211);
 			label8.Name = "label8";
 			label8.Size = new Size(59, 15);
 			label8.TabIndex = 11;
@@ -416,8 +444,10 @@
 		private Button button3;
 		private TextBox txtDnsServers;
 		private Label label7;
-		private CheckBox chkOverrideAllowedIPs;
+		private CheckBox chkUseAllowedIPs;
 		private TextBox txtAllowedIPs;
 		private Label label5;
+		private CheckBox chkUseDns;
+		private CheckBox chkUseKeepAlive;
 	}
 }

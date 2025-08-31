@@ -44,6 +44,9 @@
 			txtConf = new TextBox();
 			tabPage1 = new TabPage();
 			groupBox1 = new GroupBox();
+			label10 = new Label();
+			txtDns = new TextBox();
+			label9 = new Label();
 			txtAllowedIPs = new TextBox();
 			label8 = new Label();
 			button3 = new Button();
@@ -56,7 +59,8 @@
 			buttonEdit = new Button();
 			lblName = new Label();
 			label7 = new Label();
-			label9 = new Label();
+			label11 = new Label();
+			txtPersistentKeepalive = new TextBox();
 			tabControl1.SuspendLayout();
 			tabPage0.SuspendLayout();
 			tabPage1.SuspendLayout();
@@ -136,17 +140,17 @@
 			txtPostUp.AcceptsReturn = true;
 			txtPostUp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 			txtPostUp.Font = new Font("Consolas", 8.25F);
-			txtPostUp.Location = new Point(73, 198);
+			txtPostUp.Location = new Point(73, 231);
 			txtPostUp.Multiline = true;
 			txtPostUp.Name = "txtPostUp";
 			txtPostUp.ScrollBars = ScrollBars.Both;
-			txtPostUp.Size = new Size(429, 129);
+			txtPostUp.Size = new Size(429, 96);
 			txtPostUp.TabIndex = 9;
 			// 
 			// label5
 			// 
 			label5.AutoSize = true;
-			label5.Location = new Point(22, 198);
+			label5.Location = new Point(21, 231);
 			label5.Name = "label5";
 			label5.Size = new Size(45, 15);
 			label5.TabIndex = 8;
@@ -220,6 +224,10 @@
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox1.Controls.Add(label11);
+			groupBox1.Controls.Add(txtPersistentKeepalive);
+			groupBox1.Controls.Add(label10);
+			groupBox1.Controls.Add(txtDns);
 			groupBox1.Controls.Add(label9);
 			groupBox1.Controls.Add(txtAllowedIPs);
 			groupBox1.Controls.Add(label8);
@@ -246,10 +254,36 @@
 			groupBox1.TabStop = false;
 			groupBox1.Text = "server";
 			// 
+			// label10
+			// 
+			label10.AutoSize = true;
+			label10.Location = new Point(36, 170);
+			label10.Name = "label10";
+			label10.Size = new Size(30, 15);
+			label10.TabIndex = 25;
+			label10.Text = "DNS";
+			// 
+			// txtDns
+			// 
+			txtDns.Font = new Font("Consolas", 8.25F);
+			txtDns.Location = new Point(73, 169);
+			txtDns.Name = "txtDns";
+			txtDns.Size = new Size(108, 20);
+			txtDns.TabIndex = 24;
+			// 
+			// label9
+			// 
+			label9.AutoSize = true;
+			label9.Location = new Point(327, 210);
+			label9.Name = "label9";
+			label9.Size = new Size(153, 15);
+			label9.TabIndex = 23;
+			label9.Text = "(multiple subnets or 0.0.0.0)";
+			// 
 			// txtAllowedIPs
 			// 
 			txtAllowedIPs.Font = new Font("Consolas", 8.25F);
-			txtAllowedIPs.Location = new Point(73, 172);
+			txtAllowedIPs.Location = new Point(73, 195);
 			txtAllowedIPs.Name = "txtAllowedIPs";
 			txtAllowedIPs.Size = new Size(248, 20);
 			txtAllowedIPs.TabIndex = 22;
@@ -257,7 +291,7 @@
 			// label8
 			// 
 			label8.AutoSize = true;
-			label8.Location = new Point(2, 175);
+			label8.Location = new Point(2, 196);
 			label8.Name = "label8";
 			label8.Size = new Size(65, 15);
 			label8.TabIndex = 21;
@@ -364,14 +398,22 @@
 			label7.TabIndex = 14;
 			label7.Text = "Name:";
 			// 
-			// label9
+			// label11
 			// 
-			label9.AutoSize = true;
-			label9.Location = new Point(327, 177);
-			label9.Name = "label9";
-			label9.Size = new Size(153, 15);
-			label9.TabIndex = 23;
-			label9.Text = "(multiple subnets or 0.0.0.0)";
+			label11.AutoSize = true;
+			label11.Location = new Point(202, 170);
+			label11.Name = "label11";
+			label11.Size = new Size(108, 15);
+			label11.TabIndex = 27;
+			label11.Text = "PersistentKeepalive";
+			// 
+			// txtPersistentKeepalive
+			// 
+			txtPersistentKeepalive.Font = new Font("Consolas", 8.25F);
+			txtPersistentKeepalive.Location = new Point(316, 169);
+			txtPersistentKeepalive.Name = "txtPersistentKeepalive";
+			txtPersistentKeepalive.Size = new Size(76, 20);
+			txtPersistentKeepalive.TabIndex = 26;
 			// 
 			// UserControlServer
 			// 
@@ -421,5 +463,9 @@
 		private TextBox txtAllowedIPs;
 		private Label label8;
 		private Label label9;
+		private Label label10;
+		private TextBox txtDns;
+		private Label label11;
+		private TextBox txtPersistentKeepalive;
 	}
 }

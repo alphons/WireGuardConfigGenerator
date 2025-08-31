@@ -87,6 +87,8 @@ public static class TreeHelpers
 			ListenPort = settings.ListenPort + (group.Servers.Count * 100) - ((root.Groups.Count - 1) * 1000),
 			Address = settings.Address,
 			AllowedIPs = $"{GetSubnet(settings.Address)}.0/24",
+			DNS = "8.8.8.8",
+			PersistentKeepalive = 25,
 			Endpoint = settings.Endpoint,
 			PostUp = string.Format(settings.PostUp, name),
 			PrivateKey = privateKey,

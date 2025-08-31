@@ -28,28 +28,29 @@ public partial class UserControlPeer : UserControl
 		if (this.peer == null)
 			return;
 
+		var server = peer.ParentServer;
+
+		if (server == null)
+			return;
+
 		string config = $"""
             [Interface]
             PrivateKey = {this.peer.PrivateKey}
             ListenPort = {this.peer.ListenPort}
             Address = {this.peer.Address}
-            """ + (string.IsNullOrEmpty(peer.DNS) ? "" : $"{Environment.NewLine}DNS = {peer.DNS}{Environment.NewLine}");
-
-		var server = peer.ParentServer;
-
-		if (server == null)
-			return;
+            """
+			+ (this.peer.UseDNS ? (string.IsNullOrEmpty(peer.DNS) ? "" : $"{Environment.NewLine}DNS = {peer.DNS}") : $"{Environment.NewLine}DNS = {server.DNS}{Environment.NewLine}")
+			;
 
 		config += $"""
 				{Environment.NewLine}
 				[Peer]
 				Eindpoint = {server.Endpoint}
 				PublicKey = {server.PubKey}
-				""" + (this.peer.OverrideAllowedIPs ? $"{Environment.NewLine}AllowedIPs = {peer.AllowedIPs}" : $"{Environment.NewLine}AllowedIPs = {server.AllowedIPs}") +
-				$"""
-				{Environment.NewLine}PersistentKeepalive = {peer.PersistentKeepalive}
-				
-				""";
+				"""
+				+ (this.peer.UseAllowedIPs ? $"{Environment.NewLine}AllowedIPs = {peer.AllowedIPs}" : $"{Environment.NewLine}AllowedIPs = {server.AllowedIPs}")
+				+ (this.peer.UsePersistentKeepalive ? $"{Environment.NewLine}PersistentKeepalive = {peer.PersistentKeepalive}" : $"{Environment.NewLine}PersistentKeepalive = {server.PersistentKeepalive}")
+				;
 
 		this.txtConf.Text = config;
 	}
@@ -86,19 +87,30 @@ public partial class UserControlPeer : UserControl
 
 		this.lblName.Text = peer.Name;
 
-		if (string.IsNullOrWhiteSpace(peer.AllowedIPs))
-			peer.AllowedIPs = $"{peer.ParentServer?.Address}";
-
 		this.txtPrivateKey.Text = peer.PrivateKey;
 		this.txtPublicKey.Text = peer.PubKey;
 		this.txtListenPort.Text = peer.ListenPort.ToString();
 		this.txtAddress.Text = peer.Address?.Split('/')[0];
 		this.comboBox1.SelectedItem = peer.Address?.Split('/')[1];
-		this.txtPersistenKeepAlive.Text = peer.PersistentKeepalive.ToString();
-		this.txtDnsServers.Text = peer.DNS;
 
-		this.chkOverrideAllowedIPs.Checked = this.peer.OverrideAllowedIPs;
-		this.txtAllowedIPs.Text = peer.AllowedIPs;
+		if (peer.UsePersistentKeepalive)
+			this.txtPersistenKeepAlive.Text = peer.PersistentKeepalive.ToString();
+		else
+			this.txtPersistenKeepAlive.Text = peer.ParentServer?.PersistentKeepalive.ToString();
+
+		if (peer.UseDNS)
+			this.txtDnsServers.Text = $"{peer.DNS}";
+		else
+			this.txtDnsServers.Text = $"{peer.ParentServer?.DNS}";
+
+		if (peer.UseAllowedIPs)
+			this.txtAllowedIPs.Text = $"{peer.AllowedIPs}";
+		else
+			this.txtAllowedIPs.Text = $"{peer.ParentServer?.Address}";
+
+		this.chkUseAllowedIPs.Checked = this.peer.UseAllowedIPs;
+		this.chkUseDns.Checked = this.peer.UseDNS;
+		this.chkUseKeepAlive.Checked = this.peer.UsePersistentKeepalive;
 	}
 
 
@@ -111,10 +123,19 @@ public partial class UserControlPeer : UserControl
 		this.peer.PubKey = this.txtPublicKey.Text;
 		this.peer.ListenPort = int.TryParse(this.txtListenPort.Text, out int port) ? port : 0;
 		this.peer.Address = $"{this.txtAddress.Text}/{this.comboBox1.SelectedItem}";
-		this.peer.PersistentKeepalive = int.TryParse(this.txtPersistenKeepAlive.Text, out int pka) ? pka : 0;
-		this.peer.DNS = this.txtDnsServers.Text;
-		this.peer.OverrideAllowedIPs = this.chkOverrideAllowedIPs.Checked;
-		this.peer.AllowedIPs = this.txtAllowedIPs.Text;
+
+		this.peer.UseAllowedIPs = this.chkUseAllowedIPs.Checked;
+		this.peer.UseDNS = this.chkUseDns.Checked;
+		this.peer.UsePersistentKeepalive = this.chkUseKeepAlive.Checked;
+
+		if(this.peer.UseDNS)
+			this.peer.DNS = this.txtDnsServers.Text;
+
+		if (this.peer.UseAllowedIPs)
+			this.peer.AllowedIPs = this.txtAllowedIPs.Text;
+
+		if (this.peer.UsePersistentKeepalive)
+			this.peer.PersistentKeepalive = int.TryParse(this.txtPersistenKeepAlive.Text, out int pka) ? pka : 0;
 
 		this.buttonEdit.Enabled = true;
 		this.buttonCancel.Enabled = false;
@@ -163,8 +184,18 @@ public partial class UserControlPeer : UserControl
 		MakeConfig();
 	}
 
-	private void Override_CheckedChanged(object sender, EventArgs e)
+	private void AllowedIP_CheckedChanged(object sender, EventArgs e)
 	{
-		this.txtAllowedIPs.Enabled = this.chkOverrideAllowedIPs.Checked;
+		this.txtAllowedIPs.Enabled = this.chkUseAllowedIPs.Checked;
+	}
+
+	private void Dns_CheckedChanged(object sender, EventArgs e)
+	{
+		this.txtDnsServers.Enabled = this.chkUseDns.Checked;
+	}
+
+	private void UseKeepAlive_CheckedChanged(object sender, EventArgs e)
+	{
+		this.txtPersistenKeepAlive.Enabled = this.chkUseKeepAlive.Checked;
 	}
 }

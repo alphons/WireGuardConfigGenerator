@@ -21,7 +21,7 @@ public class Root
 	{
 		if (File.Exists(path))
 		{
-			var root = await CryptoUtils.DecryptAndDecompressFromFileAsync<Root>(path, password) ?? new();
+			Root? root = await CryptoUtils.DecryptAndDecompressFromFileAsync<Root>(path, password);
 			if (root != null)
 			{
 				Groups = root.Groups;
@@ -48,6 +48,7 @@ public class WireGuardItem
 	public string? AllowedIPs { get; set; }
 	public string Address { get; set; } = "0.0.0.0";
 	public string? DNS { get; set; }
+	public int PersistentKeepalive { get; set; }
 }
 
 public class Server : WireGuardItem
@@ -75,7 +76,8 @@ public class Server : WireGuardItem
 
 public class Peer : WireGuardItem
 {
-	public bool OverrideAllowedIPs { get; set; }
+	public bool UseAllowedIPs { get; set; }
+
 	public int PersistentMaxConnections { get; set; }
 	public int PersistentMinConnections { get; set; }
 	public string? PersistentConnectionInterval { get; set; }
@@ -98,7 +100,6 @@ public class Peer : WireGuardItem
 	public bool UsePersistentMinConnections { get; set; }
 	public bool UsePersistentConnectionInterval { get; set; }
 	public bool UsePersistentConnectionTimeout { get; set; }
-	public int PersistentKeepalive { get; set; }
 
 	[JsonIgnore]
 	public Server? ParentServer { get; set; }

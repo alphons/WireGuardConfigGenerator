@@ -29,6 +29,8 @@ public partial class UserControlServer : UserControl
 		this.comboBox1.SelectedItem = server.Address?.Split('/')[1];
 		this.txtPostUp.Text = server.PostUp;
 		this.txtAllowedIPs.Text = server.AllowedIPs;
+		this.txtDns.Text = server.DNS;
+		this.txtPersistentKeepalive.Text = server.PersistentKeepalive.ToString();
 	}
 
 	private void Edit_Click(object sender, EventArgs e)
@@ -63,6 +65,8 @@ public partial class UserControlServer : UserControl
 		this.server.PostUp = this.txtPostUp.Text;
 		this.server.PubKey = this.txtPublicKey.Text;
 		this.server.AllowedIPs = this.txtAllowedIPs.Text;
+		this.server.DNS = this.txtDns.Text;
+		this.server.PersistentKeepalive = int.TryParse(this.txtPersistentKeepalive.Text, out int PersistentKeepalive) ? PersistentKeepalive : 0;
 
 		this.buttonEdit.Enabled = true;
 		this.buttonCancel.Enabled = false;
