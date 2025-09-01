@@ -45,7 +45,7 @@ public partial class UserControlPeer : UserControl
 		config += $"""
 				{Environment.NewLine}
 				[Peer]
-				Eindpoint = {server.Endpoint}
+				Endpoint = {server.Endpoint}
 				PublicKey = {server.PubKey}
 				"""
 				+ (this.peer.UseAllowedIPs ? $"{Environment.NewLine}AllowedIPs = {peer.AllowedIPs}" : $"{Environment.NewLine}AllowedIPs = {server.AllowedIPs}")
@@ -104,9 +104,9 @@ public partial class UserControlPeer : UserControl
 			this.txtDnsServers.Text = $"{peer.ParentServer?.DNS}";
 
 		if (peer.UseAllowedIPs)
-			this.txtAllowedIPs.Text = $"{peer.AllowedIPs}";
+			this.txtAllowedIPs.Text = $"{peer.AllowedIPs?.Replace(';',',')}";
 		else
-			this.txtAllowedIPs.Text = $"{peer.ParentServer?.Address}";
+			this.txtAllowedIPs.Text = $"{peer.ParentServer?.AllowedIPs}";
 
 		this.chkUseAllowedIPs.Checked = this.peer.UseAllowedIPs;
 		this.chkUseDns.Checked = this.peer.UseDNS;
