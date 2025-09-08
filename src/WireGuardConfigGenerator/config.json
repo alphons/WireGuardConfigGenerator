@@ -3,5 +3,5 @@
 	"Address": "10.0.0.1/32",
 	"ListenPort": 56900,
 	"PersistentKeepalive": 25,
-	"PostUp": "powershell.exe -ExecutionPolicy Bypass -Command \u0022Set-NetConnectionProfile -InterfaceAlias \u0027{0}\u0027 -NetworkCategory Private; Set-NetIPInterface -InterfaceAlias \u0027{0}\u0027 -Forwarding Enabled\u0022"
+	"PostUp": "powershell.exe -ExecutionPolicy Bypass -Command \u0022Set-NetConnectionProfile -InterfaceAlias \u0027{0}\u0027 -NetworkCategory Private; Set-NetIPInterface -Forwarding Enabled\u0022"
 }
